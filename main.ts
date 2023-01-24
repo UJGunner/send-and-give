@@ -28,6 +28,11 @@ basic.forever(function () {
         basic.showString("game over")
         basic.showString("score")
         basic.showString("" + (score))
+        if (high_score < score) {
+            high_score = score
+            basic.showString("new high score")
+            basic.showString("" + (high_score))
+        }
     }
 })
 basic.forever(function () {
@@ -41,14 +46,17 @@ basic.forever(function () {
             `)
         radio.sendString("urijah's score")
         radio.sendString("" + (score))
-    }
-})
-basic.forever(function () {
-    if (high_score < score) {
-        high_score += score
-        if (lives <= 0) {
-            basic.showString("new high score")
-            basic.showString("" + (high_score))
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        if (high_score < score) {
+            high_score = score
+            radio.sendString("new high score")
+            radio.sendString("" + (high_score))
         }
     }
 })
