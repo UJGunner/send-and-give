@@ -16,6 +16,7 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
 let high_score = 0
 let score = 0
 let lives = 3
+score = 0
 basic.forever(function () {
     if (lives <= 0) {
         basic.showLeds(`
